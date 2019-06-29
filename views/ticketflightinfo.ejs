@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="/images/style3.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">TAP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Travel And Piquency</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ticketfirstpage">Search Flights</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br> 
+<div class="container">       
+  <table class="table table-bordered">
+   <h4>Return Flights</h4>
+    <thead>
+      <tr>
+        <th>Airline</th>
+        <th>Return Time</th>
+        <th>Arrive Time</th>
+        <th>Duration</th>
+        <th>Return Airport</th>
+        <th>Return Arrive</th>
+        <th>Return Date</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+        <% for(var i=0;i<info.length;i++) { %>
+        <tbody>
+      <tr>
+        <td><%= info[i].airline %></td>
+        <td><%= info[i].returntime %></td>
+        <td><%= info[i].arrivetime %></td>
+        <td><%= info[i].duration %></td>
+        <td><%= info[i].returnairport %></td>
+        <td><%= info[i].returnarrive %></td>
+        <td><%= info[i].returndate %></td>
+        <td><%= info[i].price %></td>
+         </tr>
+    </tbody>
+    <form method="post" action="/addreturn/<%= info[i].id %>/<%= info[i].airline %>/<%= info[i].returnairport %>/<%= info[i].price %>">
+        Seat Preference:
+        <select name="seat">
+        <% if(info[i].windowside !=0) { %>
+        <option value="windowside - <%= info[i].windowside %>">windowside - <%= info[i].windowside %></option>
+        <% } 
+         if(info[i].aisle !=0) { %>
+        <option value="aisle - <%= info[i].aisle %>">aisle - <%= info[i].aisle %></option>
+        <% } 
+        if(info[i].middle !=0) { %>
+        <option value="middle - <%= info[i].middle %>">middle - <%= info[i].middle %></option>
+        <% } %>
+        </select>
+        Passenger Name: 
+        <input type="text" name="name">
+        Passenger Age:
+        <input type="text" name="age">
+
+        <input class='btn btn-success' type="submit" value="ADD">
+      </form>
+<% } %>
+  </table>
+
+</div>
+<br><br><br>
+<div class="container">
+<table class="table table-bordered">
+  <h4>Depart Flights</h4>
+    <thead>
+      <tr>
+        <th>Airline</th>
+        <th>Depart Time</th>
+        <th>Arrive Time</th>
+        <th>Duration</th>
+        <th>Depart Airport</th>
+        <th>Depart Arrive</th>
+        <th>Depart Date</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+  
+         <% for(var i=0;i<infod.length;i++){ %>
+         <tbody>
+      <tr>
+        <td><%= infod[i].airline %></td>
+        <td><%= infod[i].departtime %></td>
+        <td><%= infod[i].arrivetime %></td>
+        <td><%= infod[i].duration %></td>
+        <td><%= infod[i].departairport %></td>
+        <td><%= infod[i].departarrive %></td>
+        <td><%= infod[i].departdate %></td>
+        <td><%= infod[i].price %></td>
+
+         </tr>
+    </tbody>
+<form method="post" action="/adddepart/<%= info[i].id %>/<%= info[i].airline %>/<%= info[i].returnairport %>/<%= info[i].price %>">
+        Seat Preference:
+
+        <select name="seat">
+        <% if(infod[i].windowside !=0) { %>
+        <option value="windowside - <%= infod[i].windowside %>"> windowside- <%= infod[i].windowside %> </option>
+        <% } %>
+        <% if(infod[i].aisle !=0) { %>
+        <option value="aisle - <%= infod[i].aisle %>"> aisle- <%= infod[i].aisle %> </option>
+        <% } %>
+        <% if(infod[i].middle !=0) { %>
+        <option value="middle - <%= infod[i].middle %>"> middle- <%= infod[i].middle %> </option>
+        <% } %>
+        </select>
+
+        Passenger Name: 
+        <input type="text" name="name">
+        Passenger Age:
+        <input type="text" name="age">
+        <input class='btn btn-success' type="submit" value="ADD">
+      </form>
+      <% } %>
+  </table>
+</div>
+
+<a href='/passengerinfo'><button class="btn btn-info">Continue</button></a>
+
+</body>
+</html>

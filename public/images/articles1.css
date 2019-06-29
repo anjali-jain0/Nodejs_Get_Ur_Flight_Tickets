@@ -1,0 +1,24 @@
+
+.head
+{
+text-align:center;
+color:#1B2631  ;
+opacity:1;
+font-size:48px;
+font-family:verdana;
+font-weight:bold;
+}
+.articles
+{
+color:black;
+text-decoration:none;
+font-family:verdana;
+font-size:20px;
+}
+.li1
+{
+font-family:verdana;
+color:black;
+text-decoration:none;
+font-size:17px;
+}

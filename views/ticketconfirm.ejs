@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="/images/style2.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="./">TAP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Travel And Piquency</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ticketfirstpage">Search Flights Again</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>         
+<br>
+ <div class="container">
+<table class="table table-bordered">
+  <h2>Ticket</h2>
+    <thead>
+      <tr>
+        <th>Airline</th>
+        <th>Flight Id</th>
+        <th>Price</th>
+        <th>Seat Prefered</th>
+        <th>Name of passenger</th>
+        <th>Age of passenger</th>
+      </tr>
+    </thead>
+<tbody>
+   <% for(var i=0;i<ticketdata.length;i++){ %>
+      <tr>
+        <td><%= ticketdata[i].airline %></td>
+        <td><%= ticketdata[i].id %></td>
+        <td><%= ticketdata[i].price %></td>
+        <td><%= ticketdata[i].seatprefered %></td>
+        <td><%= ticketdata[i].name %></td>
+        <td><%= ticketdata[i].age %></td>
+         </tr>
+    <% } %>
+    </tbody>
+  </table>
+  </div>
+<br>
+<a href="/pinfo"><button class="btn btn-info button1">Check Contact Details</button></a>
+<form action="/charge" method="POST">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= stripePublishableKey %>"
+            data-amount="2500"
+            data-name="Buy Ticket"
+            data-description="Ebook written by Brad Traversy"
+            data-image="/marketplace.png"
+            data-locale="auto">
+          </script>
+          <script>
+            document.getElementsByClassName('stripe-button-el')[0].style.display='none';
+          </script>
+          <button type='submit' class='btn btn-success button2'>Pay</button>
+        </form>
+        
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</html>
