@@ -1,9 +1,0 @@
-availabilty - cart qty one
-passenger and card details -? what to do
-sms also include
-
-New:
-
-add stripe api one(payment gateaway) and refund?
-in payment send the security code via sms
-date fix 
