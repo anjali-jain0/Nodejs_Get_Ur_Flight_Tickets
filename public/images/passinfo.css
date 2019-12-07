@@ -1,0 +1,18 @@
+.cont1{
+	position:absolute;
+	top:140px;
+	left:150px;
+}
+.cont2{
+	position:absolute;
+	top:130px;
+	left:740px;
+}
+.text-center{
+text-align:center;
+}
+.btnn{
+position:absolute;
+top:610px;
+left:600px;
+}

@@ -45,7 +45,7 @@
         <td><%= ticketdata[i].seatprefered %></td>
         <td><%= ticketdata[i].name %></td>
         <td><%= ticketdata[i].age %></td>
-        <td><a href='/cancel/<%= ticketdata[i].id %>'><button type="button" class="btn btn-danger">Cancel bookings and refund</button></a></td>
+        <td><a href='/cancel/<%= ticketdata[i].id %>/<%= email %>/<%= number %>'><button type="button" class="btn btn-danger">Cancel bookings and refund</button></a></td>
          </tr>
     <% } %>
     </tbody>

@@ -33,6 +33,8 @@
       <tr>
         <th>Airline</th>
         <th>Flight Id</th>
+        <th>From</th>
+        <th>To</th>
         <th>Price</th>
         <th>Seat Prefered</th>
         <th>Name of passenger</th>
@@ -44,6 +46,8 @@
       <tr>
         <td><%= ticketdata[i].airline %></td>
         <td><%= ticketdata[i].id %></td>
+        <td><%= ticketdata[i].from %></td>
+        <td><%= ticketdata[i].to %></td>
         <td><%= ticketdata[i].price %></td>
         <td><%= ticketdata[i].seatprefered %></td>
         <td><%= ticketdata[i].name %></td>
@@ -55,23 +59,7 @@
   </div>
 <br>
 <a href="/pinfo"><button class="btn btn-info button1">Check Contact Details</button></a>
-<form action="/charge" method="POST">
-          <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= stripePublishableKey %>"
-            data-amount="2500"
-            data-name="Buy Ticket"
-            data-description="Ebook written by Brad Traversy"
-            data-image="/marketplace.png"
-            data-locale="auto">
-          </script>
-          <script>
-            document.getElementsByClassName('stripe-button-el')[0].style.display='none';
-          </script>
-          <button type='submit' class='btn btn-success button2'>Pay</button>
-        </form>
-        
+<a href='/payment'><button class="btn btn-success button2">Pay</button></a>
+
 </body>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </html>

@@ -38,6 +38,7 @@
         <th>Return Arrive</th>
         <th>Return Date</th>
         <th>Price</th>
+        <th>Flight Details</th>
       </tr>
     </thead>
         <% for(var i=0;i<info.length;i++) { %>
@@ -51,28 +52,10 @@
         <td><%= info[i].returnarrive %></td>
         <td><%= info[i].returndate %></td>
         <td><%= info[i].price %></td>
-         </tr>
+        <td><a href='/return/flightdetails/<%= info[i].id %>' ><button class='btn btn-success'>Book</button></a></td>
+      </tr>
     </tbody>
-    <form method="post" action="/addreturn/<%= info[i].id %>/<%= info[i].airline %>/<%= info[i].returnairport %>/<%= info[i].price %>">
-        Seat Preference:
-        <select name="seat">
-        <% if(info[i].windowside !=0) { %>
-        <option value="windowside - <%= info[i].windowside %>">windowside - <%= info[i].windowside %></option>
-        <% } 
-         if(info[i].aisle !=0) { %>
-        <option value="aisle - <%= info[i].aisle %>">aisle - <%= info[i].aisle %></option>
-        <% } 
-        if(info[i].middle !=0) { %>
-        <option value="middle - <%= info[i].middle %>">middle - <%= info[i].middle %></option>
-        <% } %>
-        </select>
-        Passenger Name: 
-        <input type="text" name="name">
-        Passenger Age:
-        <input type="text" name="age">
-
-        <input class='btn btn-success' type="submit" value="ADD">
-      </form>
+  
 <% } %>
   </table>
 
@@ -91,6 +74,7 @@
         <th>Depart Arrive</th>
         <th>Depart Date</th>
         <th>Price</th>
+        <th>Flight Details</th>
       </tr>
     </thead>
   
@@ -105,35 +89,12 @@
         <td><%= infod[i].departarrive %></td>
         <td><%= infod[i].departdate %></td>
         <td><%= infod[i].price %></td>
-
-         </tr>
+        <td><a href='/depart/flightdetails/<%= infod[i].id %>'><button class='btn btn-success'>Book</button></a></td>
+      </tr>
     </tbody>
-<form method="post" action="/adddepart/<%= info[i].id %>/<%= info[i].airline %>/<%= info[i].returnairport %>/<%= info[i].price %>">
-        Seat Preference:
-
-        <select name="seat">
-        <% if(infod[i].windowside !=0) { %>
-        <option value="windowside - <%= infod[i].windowside %>"> windowside- <%= infod[i].windowside %> </option>
-        <% } %>
-        <% if(infod[i].aisle !=0) { %>
-        <option value="aisle - <%= infod[i].aisle %>"> aisle- <%= infod[i].aisle %> </option>
-        <% } %>
-        <% if(infod[i].middle !=0) { %>
-        <option value="middle - <%= infod[i].middle %>"> middle- <%= infod[i].middle %> </option>
-        <% } %>
-        </select>
-
-        Passenger Name: 
-        <input type="text" name="name">
-        Passenger Age:
-        <input type="text" name="age">
-        <input class='btn btn-success' type="submit" value="ADD">
-      </form>
       <% } %>
   </table>
 </div>
-
-<a href='/passengerinfo'><button class="btn btn-info">Continue</button></a>
 
 </body>
 </html>

@@ -22,7 +22,7 @@
   </div>
 </nav>
 <div class='container'>
-<form method='post' action='/endpage'>
+<!-- <form method='post' action='/endpage'>
 <br>
 <h2>Card Details </h2><br>
 Card Type: <br>
@@ -44,9 +44,26 @@ Email: <br>
 <p><b>Ready to book?</b></p>
 <input type="radio" name="check" value="I have read and understood....">I have read and understood....
 <br><br>
-<button type="submit" class="btn btn-success">Pay and send mail</a></button>
-<br><br>
+<button type="submit" class="btn btn-success">Pay and send mail</a></button> -->
+<form action="/charge/<%= price %>/<%= email %>/<%= number %>" method="POST">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= stripePublishableKey %>"
+      data-amount="<%= price %>"
+      data-name="Buy Ticket"
+      data-description="Ebook written by Brad Traversy"
+      data-image="/marketplace.png"
+      data-locale="auto">
+    </script>
+    <script>
+      document.getElementsByClassName('stripe-button-el')[0].style.display='none';
+    </script>
+    <button type='submit' class='btn btn-success button2'>Pay and receive mail & sms</button>
 </form>
+<br><br>
+<!-- </form> -->
 </div>
 </body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </html>

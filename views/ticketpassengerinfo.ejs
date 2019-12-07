@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+<link href="/images/passinfo.css" rel="stylesheet" type="text/css" />
 <link href="/images/style2.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -25,10 +26,10 @@
   </div>
 </nav>
 <br>
-<div class='container'>
+<h2 class='text-center'>Contact Informtion</h2>
 <form method="post" action="/confirm">
-<h2>Contact Informtion</h2>
-<br><br>
+
+<div class='cont1'>
 Contact title: <br>
 <select name="title">
 <option value="Mr.">Mr.</option>
@@ -42,6 +43,9 @@ Contact Lastname: <br>
 <input type="text" name="lname"><br><br>
 Contact Date-of-Birth: <br>
 <input type="date" name="dob" placeholder="mm/dd/yy"><br><br>
+</div>
+
+<div class='cont2'>
 Contact Nationality: <br>
 <input type="text" name="nationality"><br><br>
 Contact Country: <br>
@@ -50,9 +54,10 @@ Contact Mobile Phone Number: <br>
 <input type="text" name="phnnumber" ><br><br>
 Contact Email-Address: <br>
 <input type="email" name="email"><br><br>
-<button type="submit" class="btn btn-info">Continue Booking</button>
-<br><br>
-</form>
 </div>
+<button type="submit" class="btn btn-info btnn">Continue Booking</button>
+<br><br>
+
+</form>
 </body>
 </html>
